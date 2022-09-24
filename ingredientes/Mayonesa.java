@@ -2,22 +2,21 @@ package ingredientes;
 
 import bagguette.Bagguette;
 
-public class Pollo extends Ingrediente{
-    
+public class Mayonesa extends Ingrediente{
+
     Bagguette bagguette;
 
-    public Pollo(Bagguette bagguette){
+    public Mayonesa(Bagguette bagguette){
         this.bagguette = bagguette;
     }
 
     @Override
     public String getDescription() {
-        return bagguette.getDescripcion() + ", Pollo";
+        return bagguette.getDescripcion() + ", Mayonesa";
     }
 
     @Override
     public double cost() {
-        return 25 + bagguette.cost();
+        return 6 + bagguette.cost();
     }
-
 }
