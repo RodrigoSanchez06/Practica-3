@@ -1,22 +1,23 @@
 package ingredientes;
-
 import bagguette.Bagguette;
 
-public class Pollo extends Ingrediente{
-    
+public class Catsup extends Ingrediente {
+
     Bagguette bagguette;
 
-    public Pollo(Bagguette bagguette){
+    public Catsup(Bagguette bagguette){
         this.bagguette = bagguette;
     }
 
     @Override
     public String getDescription() {
-        return bagguette.getDescripcion() + ", Pollo";
+        return bagguette.getDescripcion() + ", Catsup";
     }
 
     @Override
     public double cost() {
-        return 25 + bagguette.cost();
+        return 5 + bagguette.cost();
     }
+
+    
 }
