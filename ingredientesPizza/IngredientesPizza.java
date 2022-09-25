@@ -1,13 +1,25 @@
 package ingredientesPizza;
 
-import pizza.Pizza;
 
-public abstract class IngredientesPizza extends Pizza {
-    protected String tipoCarne;
+public abstract class IngredientesPizza{
+    protected String nombre;
+    protected double precio;
 
-    public void setTipoCarne(String tipoCarne) {
-        this.tipoCarne = tipoCarne;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public abstract String getTipoCarne();
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public void setPrecio(double precio){
+        if(precio > 0)
+            this.precio=precio;
+        throw new IllegalArgumentException();
+    }
+
+    public double getPrecio(){
+        return this.precio;
+    }
 }

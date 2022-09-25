@@ -4,10 +4,9 @@ public class Boneless extends Pizza {
 
     public Boneless() {
         setNombre("Pizza Boneless");
-
-        setTipoCarne(new ingredientesPizza.carnes.Jamon());
-        setTipoMasa(new ingredientesPizza.masas.Gruesa());
-        setTipoQueso(new ingredientesPizza.quesos.Manchego());
+        setTipoCarne(new ingredientesPizza.Carne(2));
+        setTipoMasa(new ingredientesPizza.Masa(1));
+        setTipoQueso(new ingredientesPizza.Queso(2));
         setDescripcion("Pizza con" + this.getTipoCarne() + this.getTipoMasa() + this.getTipoQueso());
         setCosto(90);
     }

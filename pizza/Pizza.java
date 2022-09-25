@@ -1,15 +1,13 @@
 package pizza;
 
-import ingredientesPizza.IngredientesPizza;
-import ingredientesPizza.masas.Gruesa;
-import ingredientesPizza.quesos.Manchego;
+import ingredientesPizza.*;
 
 public abstract class Pizza {
-    String nombre, descripcion;
-    Manchego tipoQueso;
-    Gruesa tipoMasa;
-    IngredientesPizza tipoCarne;
-    double costo;
+    protected String nombre, descripcion;
+    protected Queso tipoQueso;
+    protected Masa tipoMasa;
+    protected Carne tipoCarne;
+    protected double costo;
 
     public String getDescripcion() {
         return this.descripcion;
@@ -21,30 +19,30 @@ public abstract class Pizza {
     }
 
     public String getTipoCarne() {
-        return this.tipoCarne.getTipoCarne();
+        return this.tipoCarne.getNombre();
     }
 
     public String getTipoQueso() {
-        return this.tipoQueso.getTipoQueso();
+        return this.tipoQueso.getNombre();
     }
 
     public String getTipoMasa() {
-        return this.tipoMasa.getTipoMasa();
+        return this.tipoMasa.getNombre();
     }
 
     public double costo() {
         return this.costo;
     }
 
-    public void setTipoCarne(IngredientesPizza carnes) {
-        this.tipoCarne = carnes;
+    public void setTipoCarne(Carne carnes) {
+        this.tipoCarne = (Carne) carnes;
     }
 
-    public void setTipoQueso(Manchego tipoQueso) {
+    public void setTipoQueso(Queso tipoQueso) {
         this.tipoQueso = tipoQueso;
     }
 
-    public void setTipoMasa(Gruesa tipoMasa) {
+    public void setTipoMasa(Masa tipoMasa) {
         this.tipoMasa = tipoMasa;
     }
 
