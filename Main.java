@@ -3,15 +3,7 @@ import bagguette.Bagguette;
 import bagguette.PanAjo;
 import bagguette.PanBlanco;
 import bagguette.PanIntegral;
-import ingredientes.Catsup;
-import ingredientes.Cebolla;
-import ingredientes.Jamon;
-import ingredientes.Jitomate;
-import ingredientes.Lechuga;
-import ingredientes.Mayonesa;
-import ingredientes.Mostaza;
-import ingredientes.Pepperoni;
-import ingredientes.Pollo;
+import ingredientes.*;
 
 public class Main {
     public static void main(String[] args) {

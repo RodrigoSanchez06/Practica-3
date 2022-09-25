@@ -8,7 +8,7 @@ public class QuesoPollo extends Pizza {
         setTipoMasa(new ingredientesPizza.Masa(2));
         setTipoQueso(new ingredientesPizza.Queso(1));
         setDescripcion("Pizza con" + this.getTipoCarne() + this.getTipoMasa() + this.getTipoQueso());
-        setCosto(100);
+        setCosto(this.tipoCarne.getPrecio()+this.tipoMasa.getPrecio()+this.tipoQueso.getPrecio()+30);
     }
 
 }
