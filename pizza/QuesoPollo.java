@@ -1,7 +1,19 @@
 package pizza;
 
+/**
+ * Clase QuesoPollo que implementa una pizza QuesoPollo con pollo, queso Cheddar y masa delgada
+ * @author Chao2808 Heigz RodrigoSanchez06
+ * @version (25 Septiembre 2022)
+ * @see IngredientePizza
+ * @see Carne
+ * @see Queso
+ * @see Masa
+ */
 public class QuesoPollo extends Pizza {
 
+    /**
+     * Constructor por omisión que instancia una pizza QuesoPollo con ingredientes específicos
+     */
     public QuesoPollo() {
         setNombre("Pizza de queso y pollo");
         setTipoCarne(new ingredientesPizza.Carne(3));

@@ -12,10 +12,30 @@ import ingredientesPizza.*;
  * @see Masa
  */
 public abstract class Pizza {
+
+    /**
+     * Atributos de tipo String que almacenan el nombre y la descripcion de la pizza respectivamente
+     */
     protected String nombre, descripcion;
+
+    /**
+     * Atributo de tipo Queso que almacena el tipo de queso de la pizza
+     */
     protected Queso tipoQueso;
+
+    /**
+     * Atributo de tipo Masa que almacena el tipo de masa de la pizza
+     */
     protected Masa tipoMasa;
+
+    /**
+     * Atributo de tipo Carne que almacena el tipo de carne de la pizza
+     */
     protected Carne tipoCarne;
+
+    /**
+     * Atributo de tipo double que almacena el precio de la pizza
+     */
     protected double costo;
 
     /**
