@@ -3,7 +3,7 @@ package bagguette;
 public class PanAjo extends Bagguette {
 
     public PanAjo(){
-        descripcion = "Baguette con: Pan Ajo";
+        descripcion = "Pan Ajo";
     }
 
     @Override
