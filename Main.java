@@ -13,6 +13,9 @@ import ingredientes.Mostaza;
 import ingredientes.Pepperoni;
 import ingredientes.Pollo;
 
+/**
+ * Clase principal del restaurante WaySub.
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -22,24 +25,24 @@ public class Main {
         + "2 .- Pizza. ");
         int opcion;
         boolean ordenTerminada = false;
-        do{
+        do{ //Valida opcionens
             while (true) {
-                try {
+                try { //Valida si opcion Bagguette O Pizza es correcto
                     String opcionUsser = in.nextLine();
                     opcion = Integer.parseInt(opcionUsser);
-                    break;
+                    break; 
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Por favot elige una opción VALIDA : \n"
+                    System.out.println("Por favor elige una opción VALIDA : \n"
                     + "1 .- Bagguette.\n"
                     + "2 .- Pizza. ");
                 }
             }
-
+            //Valida si Bagguette o Pizza
             if (opcion == 1) {
                 System.out.println("Haz  elegido Bagguette, para comenzar ");
                 boolean panCorrecto =  false;
                 int opcionPan;
-                do{
+                do{ //Valida tipo de pan es correcto
                     System.out.println("elige el tipo de pan que deseas ordenar: ");
                     System.out.println("1 .- Pan Blanco \n" +
                             "2 .- Pan Ajo \n" + 
@@ -50,14 +53,14 @@ public class Main {
                             opcionPan = Integer.parseInt(StringPan);
                             break;
                         } catch (NumberFormatException nfe) {
-                            System.out.println("Por favot elige una opción VALIDA : \n"
+                            System.out.println("Por favor elige una opción VALIDA : \n"
                                 + "1 .- Pan Blanco \n " +
                                 "2 .- Pan Ajo \n" + 
                                 "3 .- Pan Integral ");
                         }
-                    }
+                    }//Valida opciones de pan
                     switch (opcionPan) {
-                        case 1:
+                        case 1: //Arma Bagguette
                             System.out.println("haz elegido tu bagguette con pan Blanco, ");
                             Bagguette panBlanco = new PanBlanco();
                             panBlanco = ordenaIngredientes(panBlanco);
@@ -65,15 +68,15 @@ public class Main {
                             panCorrecto =  true;
                             ordenTerminada = true;
                             break;
-                        case 2:
+                        case 2:  //Arma Bagguette
                             System.out.println("haz elegido tu bagguette con pan Ajo, ");
                             Bagguette panAjo = new PanAjo();
                             panAjo = ordenaIngredientes(panAjo);
                             imprimeTicket(panAjo);
                             panCorrecto = true;
                             ordenTerminada = true;
-
-                        case 3:
+                            break;
+                        case 3://Arma Bagguette
                             System.out.println("haz elegido tu bagguette con pan Integral, ");
                             Bagguette panIntegral = new PanIntegral();
                             panIntegral = ordenaIngredientes(panIntegral);
@@ -89,12 +92,55 @@ public class Main {
                 
             } else if(opcion == 2) {
                 int opcionPizza;
-                System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n " +
-                        "1 .- \n " + 
-                        "2 .- \n " +
-                        "3 .- \n " +
-                        "4 .- \n " +
-                        "5 .-  ");//VALIDAR OPCIONES, Y TRY CATCH
+                System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n ");
+                do{
+                    System.out.println(
+                            "1 .- Boneless.\n " + 
+                            "2 .- Carnivora.\n " +
+                            "3 .- Hawaiana Austera.\n " +
+                            "4 .- Queso Pollo.\n " +
+                            "5 .- Salchichonan.");
+                    while (true) {
+                            try {
+                                String pizzaString = in.nextLine();
+                                opcionPizza = Integer.parseInt(pizzaString);
+                                break;
+                            } catch (NumberFormatException nfe) {
+                                System.out.println("Por favor elige una opción VALIDA : \n");
+                                System.out.println("1 .- Boneless.\n " + 
+                                "2 .- Carnivora.\n " +
+                                "3 .- Hawaiana Austera.\n " +
+                                "4 .- Queso Pollo.\n " +
+                                "5 .- Salchichonan.");
+                            }
+                    }
+                    switch (opcionPizza) {
+                        case 1:
+                            //TODO CREA E IMPRIME TICKET PIZZA BONELESS
+                            ordenTerminada = true;
+                            break;
+                        case 2:
+                            //TODO CREA E IMPRIME TICKET PIZZA CARNIVORA
+                            ordenTerminada = true;
+                            break;
+                        case 3:
+                            //TODO CREA E IMPRIME TICKET PIZZA HAWAIANAN
+                            ordenTerminada = true;
+                            break;
+                        case 4:
+                            //TODO CREA E IMPRIME  TICKET PIZZA POLLO
+                            ordenTerminada = true;
+                            break;
+                        case 5:
+                            //TODO CREA E IMPRIME TICKET PIZZA SALCHICONA
+                            ordenTerminada = true;
+                            break;
+                        default:
+                            System.out.println("OPCION NO EXISTENTE, INTENTE DE NUEVO POR FAVOR.");
+                            break;
+                    }
+                }while(!ordenTerminada);
+                
             } else {
                 System.out.println("Opción no existente, intente nuevamente.");
                 System.out.println("Por favor elige lo que quieras ordenar: ");
@@ -105,6 +151,11 @@ public class Main {
         System.out.println("Hasta pronto!!!");
     }
 
+    /**
+     * Metodo estatico que valida los  ingredientes y su cantidad y los agrega a la bagguette
+     * @param bagguette bagguette a la que se le agregan los ingredientes
+     * @return bagguette con todos los ingredientes
+     */
     public static Bagguette  ordenaIngredientes(Bagguette bagguette){
         System.out.println("Elige alguno de los siguientes ingredientes para tu bagguette\n" + 
                 "(Recuerda que solo puedes repetir un máximo de 3 veces cada ingrediente): ");
@@ -227,6 +278,10 @@ public class Main {
         return  bagguetteEnPreparacion;
     }
 
+    /**
+     * Metodo estatico que imprime el ticket de una orden.
+     * @param bagguette bagguett a imprimir el ticket.
+     */
     public static void imprimeTicket(Bagguette bagguette){
         System.out.println("****TICKET****");
         System.out.println("Baguette: " + bagguette.getDescripcion());
