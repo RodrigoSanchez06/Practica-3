@@ -1,9 +1,11 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import bagguette.Bagguette;
 import bagguette.PanAjo;
 import bagguette.PanBlanco;
 import bagguette.PanIntegral;
 import ingredientes.*;
+import pizza.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -80,13 +82,51 @@ public class Main {
                 }while(!panCorrecto);
                 
             } else if(opcion == 2) {
-                int opcionPizza;
-                System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n " +
-                        "1 .- \n " + 
-                        "2 .- \n " +
-                        "3 .- \n " +
-                        "4 .- \n " +
-                        "5 .-  ");//VALIDAR OPCIONES, Y TRY CATCH
+                Scanner sc = new Scanner(System.in);
+                boolean opcionValida = false;
+                int opcionPizza=0;
+                Pizza ordenada=null;
+                do{
+                    System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n " +
+                        "1 .- Boneless\n " + 
+                        "2 .- Carnivora\n " +
+                        "3 .- HawaianaAustera\n " +
+                        "4 .- QuesoPollo\n " +
+                        "5 .- Salchichona");
+
+                    try{
+                        opcionPizza = sc.nextInt();
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("\nPor favor escoja una opcion valida!!");
+                        sc.next();
+                    }
+                    if(opcionPizza < 1 || opcionPizza > 5){
+                        System.out.println("\nPor favor escoja una opcion dentro del menu!!");
+                    }
+                    else {
+                        opcionValida=true;
+                    }
+                }
+                while(!opcionValida);
+                switch(opcionPizza){
+                    case 1:
+                        ordenada = new Boneless();
+                        break;
+                    case 2:
+                        ordenada = new Carnivora();
+                        break;
+                    case 3:
+                        ordenada = new HawaianaAustera();
+                        break;
+                    case 4:
+                        ordenada = new QuesoPollo();
+                        break;
+                    case 5:
+                        ordenada = new Salchichona();
+                        break;
+                }
+                Main.imprimeTicket(new AdapterBaguette(ordenada));
             } else {
                 System.out.println("Opción no existente, intente nuevamente.");
                 System.out.println("Por favor elige lo que quieras ordenar: ");
@@ -221,7 +261,7 @@ public class Main {
 
     public static void imprimeTicket(Bagguette bagguette){
         System.out.println("****TICKET****");
-        System.out.println("Baguette: " + bagguette.getDescripcion());
+        System.out.println("Compra: " + bagguette.getDescripcion());
         System.out.println("TOTAL: " + bagguette.cost());
         System.out.println("****VUELVA PRONTO****");
     }

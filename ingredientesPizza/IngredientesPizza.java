@@ -14,9 +14,9 @@ public abstract class IngredientesPizza{
     }
 
     public void setPrecio(double precio){
-        if(precio > 0)
-            this.precio=precio;
-        throw new IllegalArgumentException();
+        if(precio < 0)
+            throw new IllegalArgumentException();
+        this.precio=precio;
     }
 
     public double getPrecio(){
