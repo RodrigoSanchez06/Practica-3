@@ -10,7 +10,7 @@ import bagguette.Bagguette;
  * @see Pizza
  */
 public class AdapterBaguette extends Bagguette{
-    Pizza porAdaptar;
+    private Pizza porAdaptar;
 
     /**
      * Constructor parametrizado de un AdapterBaguette a partir de una pizza
