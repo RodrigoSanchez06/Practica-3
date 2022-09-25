@@ -2,5 +2,5 @@ package ingredientes;
 import bagguette.Bagguette;
 
 public abstract class Ingrediente extends Bagguette{
-        public abstract String getDescription();
+        public abstract String getDescripcion();
 }

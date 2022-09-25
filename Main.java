@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-import javax.print.attribute.IntegerSyntax;
-
 import bagguette.Bagguette;
 import bagguette.PanAjo;
 import bagguette.PanBlanco;
@@ -97,7 +94,7 @@ public class Main {
                         "2 .- \n " +
                         "3 .- \n " +
                         "4 .- \n " +
-                        "5 .-  ");
+                        "5 .-  ");//VALIDAR OPCIONES, Y TRY CATCH
             } else {
                 System.out.println("Opción no existente, intente nuevamente.");
                 System.out.println("Por favor elige lo que quieras ordenar: ");
@@ -113,7 +110,7 @@ public class Main {
                 "(Recuerda que solo puedes repetir un máximo de 3 veces cada ingrediente): ");
         Scanner in = new Scanner(System.in);
         Bagguette bagguetteEnPreparacion = bagguette;
-        int opcionIngrediente = 0;
+        int opcionIngrediente = 0, maxIngredientes = 3;
         int catsup, cebolla, jamon, jitomate, lechuga, mayonesa, mostaza, pepperoni, pollo;
         catsup = cebolla = jamon = jitomate = lechuga = mayonesa = mostaza = pepperoni = pollo = 0;
         do{
@@ -143,12 +140,12 @@ public class Main {
                     "7 .- Mostaza \n" + 
                     "8 .- Pepperoni \n" +
                     "9 .- Pollo \n" +
-                    "10 .- TERMINAR ORDEN.");
+                    "10 .- TERMINAR ORDEN."); 
                 }
             }
                 switch (opcionIngrediente) {
                     case 1:
-                        if (catsup >= 3) {
+                        if (catsup >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de Catsup.");
                         } else {
                             bagguetteEnPreparacion = new Catsup(bagguetteEnPreparacion);
@@ -156,7 +153,7 @@ public class Main {
                         }
                         break;
                     case 2:
-                        if (cebolla >= 3) {
+                        if (cebolla >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de Cebolla.");
                         } else {
                             bagguetteEnPreparacion = new Cebolla(bagguetteEnPreparacion);
@@ -164,7 +161,7 @@ public class Main {
                         }
                         break;
                     case 3:
-                        if (jamon >= 3) {
+                        if (jamon >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de Jamón.");
                         } else {
                             bagguetteEnPreparacion = new Jamon(bagguetteEnPreparacion);
@@ -172,7 +169,7 @@ public class Main {
                         }
                         break;
                     case 4:
-                        if (jitomate >= 3){
+                        if (jitomate >= maxIngredientes){
                             System.out.println("Haz superado la cantidad máxima de Jitomate.");
                         } else {
                             bagguetteEnPreparacion = new Jitomate(bagguetteEnPreparacion);
@@ -180,7 +177,7 @@ public class Main {
                         }
                         break;
                     case 5:
-                        if (lechuga >= 3) {
+                        if (lechuga >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de Lechuga.");
                         } else {
                             bagguetteEnPreparacion = new Lechuga(bagguetteEnPreparacion);
@@ -188,7 +185,7 @@ public class Main {
                         }
                         break;
                     case 6:
-                        if (mayonesa >= 3) {
+                        if (mayonesa >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de mayonesa.");
                         } else {
                             bagguetteEnPreparacion = new Mayonesa(bagguetteEnPreparacion);
@@ -196,7 +193,7 @@ public class Main {
                         }
                         break;
                     case 7:
-                        if (mostaza >= 3) {
+                        if (mostaza >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de mostaza.");
                         } else {
                             bagguetteEnPreparacion = new Mostaza(bagguetteEnPreparacion);
@@ -204,7 +201,7 @@ public class Main {
                         }
                         break;
                     case 8:
-                        if (pepperoni >= 3) {
+                        if (pepperoni >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de pepperoni.");
                         } else {
                             bagguetteEnPreparacion = new Pepperoni(bagguetteEnPreparacion);
@@ -212,7 +209,7 @@ public class Main {
                         }
                         break;
                     case 9:
-                        if (pollo >= 3) {
+                        if (pollo >= maxIngredientes) {
                             System.out.println("Haz superado la cantidad máxima de pollo.");
                         } else {
                             bagguetteEnPreparacion = new Pollo(bagguetteEnPreparacion);
@@ -227,7 +224,6 @@ public class Main {
                         break;
                 }
         }while(opcionIngrediente != 10);
-        System.out.println(bagguetteEnPreparacion.getDescripcion() + " HOLA SOY UNA PRUEBA XDXDXDXD");
         return  bagguetteEnPreparacion;
     }
 

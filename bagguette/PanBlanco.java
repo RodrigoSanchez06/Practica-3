@@ -1,8 +1,9 @@
 package bagguette;
 
 public class PanBlanco extends Bagguette{
+
     public PanBlanco(){
-        descripcion = "Baguette con: Pan Blanco";
+        descripcion = "Pan Blanco";
     }
 
     @Override

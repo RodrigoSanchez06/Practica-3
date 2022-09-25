@@ -11,7 +11,7 @@ public class Pollo extends Ingrediente{
     }
 
     @Override
-    public String getDescription() {
+    public String getDescripcion() {
         return bagguette.getDescripcion() + ", Pollo";
     }
 
