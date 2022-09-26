@@ -88,14 +88,14 @@ public class Main {
                 Scanner sc = new Scanner(System.in);
                 boolean opcionValida = false;
                 int opcionPizza=0;
-                Pizza ordenada=null;
+                Pizza ordenada = null, bl = new Boneless(), cv = new Carnivora(), ha = new HawaianaAustera(), qp = new QuesoPollo(), sch = new Salchichona();
                 do{
                     System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n " +
-                        "1 .- Boneless\n " + 
-                        "2 .- Carnivora\n " +
-                        "3 .- HawaianaAustera\n " +
-                        "4 .- QuesoPollo\n " +
-                        "5 .- Salchichona");
+                        "1 .- Boneless $"+bl.costo()+"\n " + 
+                        "2 .- Carnivora $"+cv.costo()+"\n " +
+                        "3 .- HawaianaAustera $"+ha.costo()+"\n " +
+                        "4 .- QuesoPollo $"+qp.costo()+"\n " +
+                        "5 .- Salchichona $"+sch.costo());
 
                     try{
                         opcionPizza = sc.nextInt();
@@ -114,19 +114,19 @@ public class Main {
                 while(!opcionValida);
                 switch(opcionPizza){
                     case 1:
-                        ordenada = new Boneless();
+                        ordenada = bl;
                         break;
                     case 2:
-                        ordenada = new Carnivora();
+                        ordenada = cv;
                         break;
                     case 3:
-                        ordenada = new HawaianaAustera();
+                        ordenada = ha;
                         break;
                     case 4:
-                        ordenada = new QuesoPollo();
+                        ordenada = qp;
                         break;
                     case 5:
-                        ordenada = new Salchichona();
+                        ordenada = sch;
                         break;
                 }
                 Main.imprimeTicket(new AdapterBaguette(ordenada));
