@@ -1,17 +1,11 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import bagguette.Bagguette;
 import bagguette.PanAjo;
 import bagguette.PanBlanco;
 import bagguette.PanIntegral;
-import ingredientes.Catsup;
-import ingredientes.Cebolla;
-import ingredientes.Jamon;
-import ingredientes.Jitomate;
-import ingredientes.Lechuga;
-import ingredientes.Mayonesa;
-import ingredientes.Mostaza;
-import ingredientes.Pepperoni;
-import ingredientes.Pollo;
+import ingredientes.*;
+import pizza.*;
 
 /**
  * Clase principal del restaurante WaySub.
@@ -91,56 +85,56 @@ public class Main {
                 }while(!panCorrecto);
                 
             } else if(opcion == 2) {
-                int opcionPizza;
-                System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n ");
+                Scanner sc = new Scanner(System.in);
+                boolean opcionValida = false;
+                int opcionPizza=0;
+                Pizza ordenada = null, bl = new Boneless(), cv = new Carnivora(), ha = new HawaianaAustera(), qp = new QuesoPollo(), sch = new Salchichona();
                 do{
-                    System.out.println(
-                            "1 .- Boneless.\n " + 
-                            "2 .- Carnivora.\n " +
-                            "3 .- Hawaiana Austera.\n " +
-                            "4 .- Queso Pollo.\n " +
-                            "5 .- Salchichonan.");
-                    while (true) {
-                            try {
-                                String pizzaString = in.nextLine();
-                                opcionPizza = Integer.parseInt(pizzaString);
-                                break;
-                            } catch (NumberFormatException nfe) {
-                                System.out.println("Por favor elige una opción VALIDA : \n");
-                                System.out.println("1 .- Boneless.\n " + 
-                                "2 .- Carnivora.\n " +
-                                "3 .- Hawaiana Austera.\n " +
-                                "4 .- Queso Pollo.\n " +
-                                "5 .- Salchichonan.");
-                            }
+                    System.out.println("Aquí tienes el menú de pizzas elige la que mas te agrade:\n " +
+                        "1 .- Boneless $"+bl.costo()+"\n " + 
+                        "2 .- Carnivora $"+cv.costo()+"\n " +
+                        "3 .- HawaianaAustera $"+ha.costo()+"\n " +
+                        "4 .- QuesoPollo $"+qp.costo()+"\n " +
+                        "5 .- Salchichona $"+sch.costo());
+
+                    try{
+                        opcionPizza = sc.nextInt();
                     }
-                    switch (opcionPizza) {
-                        case 1:
-                            //TODO CREA E IMPRIME TICKET PIZZA BONELESS
-                            ordenTerminada = true;
-                            break;
-                        case 2:
-                            //TODO CREA E IMPRIME TICKET PIZZA CARNIVORA
-                            ordenTerminada = true;
-                            break;
-                        case 3:
-                            //TODO CREA E IMPRIME TICKET PIZZA HAWAIANAN
-                            ordenTerminada = true;
-                            break;
-                        case 4:
-                            //TODO CREA E IMPRIME  TICKET PIZZA POLLO
-                            ordenTerminada = true;
-                            break;
-                        case 5:
-                            //TODO CREA E IMPRIME TICKET PIZZA SALCHICONA
-                            ordenTerminada = true;
-                            break;
-                        default:
-                            System.out.println("OPCION NO EXISTENTE, INTENTE DE NUEVO POR FAVOR.");
-                            break;
+                    catch(InputMismatchException e){
+                        System.out.println("\nPor favor escoja una opcion valida!!");
+                        sc.next();
                     }
-                }while(!ordenTerminada);
-                
+                    if(opcionPizza < 1 || opcionPizza > 5){
+                        System.out.println("\nPor favor escoja una opcion dentro del menu!!");
+                    }
+                    else {
+                        opcionValida=true;
+                    }
+                }
+                while(!opcionValida);
+                switch(opcionPizza){
+                    case 1:
+                        ordenada = bl;
+                        ordenTerminada = true;
+                        break;
+                    case 2:
+                        ordenada = cv;
+                        ordenTerminada = true;
+                        break;
+                    case 3:
+                        ordenada = ha;
+                        ordenTerminada = true;
+                        break;
+                    case 4:
+                        ordenada = qp;
+                        ordenTerminada = true;
+                        break;
+                    case 5:
+                        ordenada = sch;
+                        ordenTerminada = true;
+                        break;
+                }
+                Main.imprimeTicket(new AdapterBaguette(ordenada));
             } else {
                 System.out.println("Opción no existente, intente nuevamente.");
                 System.out.println("Por favor elige lo que quieras ordenar: ");
@@ -284,7 +278,7 @@ public class Main {
      */
     public static void imprimeTicket(Bagguette bagguette){
         System.out.println("****TICKET****");
-        System.out.println("Baguette: " + bagguette.getDescripcion());
+        System.out.println("Compra: " + bagguette.getDescripcion());
         System.out.println("TOTAL: " + bagguette.cost());
         System.out.println("****VUELVA PRONTO****");
     }
