@@ -115,18 +115,23 @@ public class Main {
                 switch(opcionPizza){
                     case 1:
                         ordenada = bl;
+                        ordenTerminada = true;
                         break;
                     case 2:
                         ordenada = cv;
+                        ordenTerminada = true;
                         break;
                     case 3:
                         ordenada = ha;
+                        ordenTerminada = true;
                         break;
                     case 4:
                         ordenada = qp;
+                        ordenTerminada = true;
                         break;
                     case 5:
                         ordenada = sch;
+                        ordenTerminada = true;
                         break;
                 }
                 Main.imprimeTicket(new AdapterBaguette(ordenada));
